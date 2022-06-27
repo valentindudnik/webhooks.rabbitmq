@@ -28,6 +28,10 @@ public class CustomEvent: BaseEvent {
   ...
 }
 
+public interfaces ICustomProducer {
+      void Send(CustomEvent customEvent);
+}
+
 public class CustomProducer : RabbitMQProducer, ICustomProducer
 {
         public CustomProducer(IRabbitMQClient client, ILogger<RabbitMQProducer> logger) : base(client, logger)
