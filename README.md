@@ -2,6 +2,11 @@
 
 **Webhooks.RabbitMQ** contains infrastructure for integration and creating new producers and consumers with RabbitMQ.
 
+# Technological Stack:
+
+- NET6 / C#
+- RabbitMQ.Client
+
 # Nuget Packages
 
 [Webhooks.RabbitMQ.Client v1.0.0](https://www.nuget.org/packages/Webhooks.RabbitMQ.Client/1.0.0?_src=template)
@@ -57,7 +62,3 @@ appsettings.json:
   },
 ```
 
-# Technological Stack:
-
-- NET6 / C#
-- RabbitMQ.Client
