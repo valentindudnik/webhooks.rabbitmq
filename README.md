@@ -22,12 +22,21 @@ builder.Services.ConfigureRabbitMQClient(rabbitMQConfiguration);
 
 Configure Producers:
 ```
+using Webhooks.RabbitMQ.Models.Events;
+
+public class CustomEvent: BaseEvent {
+  ...
+}
+
 public class CustomProducer : RabbitMQProducer, ICustomProducer
 {
         public CustomProducer(IRabbitMQClient client, ILogger<RabbitMQProducer> logger) : base(client, logger)
         { }
         
-        ...
+        public void Send(CustomEvent customEvent)
+        {
+            Publish(QueueNames.CustomQueue, customEvent);
+        }
 }
 
 builder.Services.AddSingleton<ICustomConsumer, CustomConsumer>();
