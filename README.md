@@ -56,3 +56,8 @@ appsettings.json:
     "Password": "[Password]"
   },
 ```
+
+# Technological Stack:
+
+- NET6 / C#
+- RabbitMQ.Client
