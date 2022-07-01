@@ -47,7 +47,7 @@ namespace Webhooks.RabbitMQ.Client
             
             if (!IsConnected)
             {
-                const string message = "Error: RabbitMQ connections could not be created and opened";
+                const string message = "RabbitMQ connections could not be created and opened";
                 throw new RabbitMQInvalidException(message);
             }
 
@@ -58,7 +58,7 @@ namespace Webhooks.RabbitMQ.Client
         {
             if (!IsConnected)
             {
-                const string message = "Error: No RabbitMQ connections are available to perform this action.";
+                const string message = "No RabbitMQ connections are available to perform this action.";
                 throw new RabbitMQInvalidException(message);
             }
 
