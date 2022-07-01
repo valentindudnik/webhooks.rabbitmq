@@ -19,14 +19,22 @@ namespace Webhooks.RabbitMQ.Client.Extensions
                 {
                     HostName = rabbitMQConfiguration.HostName,
                     RequestedHeartbeat = TimeSpan.FromSeconds(60),
-                    Port = AmqpTcpEndpoint.UseDefaultPort,
-                    Ssl = new SslOption
+                    Port = AmqpTcpEndpoint.UseDefaultPort
+                };
+
+                if (!rabbitMQConfiguration.SslEnabled)
+                {
+                    factory.Ssl = new SslOption
                     {
                         Enabled = true,
                         CertificateValidationCallback = delegate { return true; }
-                    },
-                    VirtualHost = rabbitMQConfiguration.UserName
-                };
+                    };
+                }
+
+                if (!string.IsNullOrEmpty(rabbitMQConfiguration.VirtualHost))
+                {
+                    factory.VirtualHost = rabbitMQConfiguration.VirtualHost;
+                }
 
                 if (!string.IsNullOrEmpty(rabbitMQConfiguration.UserName))
                 {
