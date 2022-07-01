@@ -22,7 +22,7 @@ namespace Webhooks.RabbitMQ.Client.Extensions
                     Port = AmqpTcpEndpoint.UseDefaultPort
                 };
 
-                if (!rabbitMQConfiguration.SslEnabled)
+                if (rabbitMQConfiguration.SslEnabled)
                 {
                     factory.Ssl = new SslOption
                     {
